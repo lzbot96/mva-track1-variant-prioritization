@@ -1,0 +1,12 @@
+data/
+results/
+work/
+logs/
+.venv/
+__pycache__/
+*.pyc
+.env
+*.fastq*
+*.vcf*
+*.bam*
+*.cram*

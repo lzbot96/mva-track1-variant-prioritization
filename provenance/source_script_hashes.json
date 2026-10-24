@@ -1,0 +1,92 @@
+[
+  {
+    "file": "scripts/aggregate_read_validation.py",
+    "original_sha256": "c22fe9af7c7115825d22965c0447e85b1fff29b2a3c454e629a90e33cb8b2d45",
+    "staged_sha256": "c15070dae7a44b255eb90f47465027d4143be5d2bc2a5e4dddf1c476566f69d1",
+    "modified": true
+  },
+  {
+    "file": "scripts/annotate_primary.sh",
+    "original_sha256": "4f44a852729bb55d7a89a1aee73e6ba8939afb375a8a436ad5da6c53bc52a0d8",
+    "staged_sha256": "e4995579f5e487b5a23f5189a2dfbb147de68129a16caf71b45a724c917ed493",
+    "modified": true
+  },
+  {
+    "file": "scripts/check_fastq_pairs.py",
+    "original_sha256": "865bf15622402307ff26c822cbc58d3a943626e277650cc554063349d6580820",
+    "staged_sha256": "94251f09c15fae1abe94a2097880157071360f7b89df6fe90f3892a01f138ada",
+    "modified": true
+  },
+  {
+    "file": "scripts/download_data.py",
+    "original_sha256": "f92ac5e44c79a9a9957cdb854c6d428483c7f8509c8334386fded8c900ac79fd",
+    "staged_sha256": "b201580556e779e709e4edbe60e2265b56566cf8b3416877de5cc171ef6ffd0f",
+    "modified": true
+  },
+  {
+    "file": "scripts/fetch_gnomad_review_genes.py",
+    "original_sha256": "ecaa398295369f3faedecea9ce94e33450acfcecfd277ab573c6c8d11fbce690",
+    "staged_sha256": "aa55bb96f82a1036d8839a108f12f42496a04336d2791115e87705e473f3f450",
+    "modified": true
+  },
+  {
+    "file": "scripts/input_assessment.py",
+    "original_sha256": "26d5e77171fa117ef669aefc0d9d7419f991028c09db31a25b1c04c11b6478e2",
+    "staged_sha256": "d03cd6f10f0fac5fcecc11c20fae52ebb458f92f740a47ebe5ecaa7896f45dae",
+    "modified": true
+  },
+  {
+    "file": "scripts/kmer_reference_specificity.py",
+    "original_sha256": "5ba009f873e2d88f424cb2399391f5d76b1cfea5b61378af505837c537f95841",
+    "staged_sha256": "28e24033eef455b5d598e052950836f32e107b7e0871acf4fe8ff06db7a59e3b",
+    "modified": true
+  },
+  {
+    "file": "scripts/phenotype_rank.py",
+    "original_sha256": "fbf54e1bfcb70d399bf4b4e494777225f7a7c5c8a778219b29e033c9452a8e9e",
+    "staged_sha256": "472524ed80b98f4eb7990aa20822d8e4cd97f6bce213e76cf48fc0144e51258a",
+    "modified": true
+  },
+  {
+    "file": "scripts/prepare_ucsc_reference.py",
+    "original_sha256": "798ead4129bae4a78c2540169ae432ec76dcf7dfbd9e0fa5fee7982feeea7b65",
+    "staged_sha256": "1eaa611891d98a2792bcf87e2bfd4038caa060250a972873aa02ae1d015cdfbc",
+    "modified": true
+  },
+  {
+    "file": "scripts/reconstruct_bub1b.py",
+    "original_sha256": "7de9b13f940b9dba15b42796f141a28dbadebb154837d47e15bd9ea7990759d4",
+    "staged_sha256": "6601e101f1eb80c47b87e6cbbaba30f9e550880425be3bf083261e24256c8106",
+    "modified": true
+  },
+  {
+    "file": "scripts/run_kmer_validation.py",
+    "original_sha256": "2eb7d43c32a683809595582f824e3297b59d7304e230c3d133f782e8034b328b",
+    "staged_sha256": "509dc5f9b96ed5b4f079c528978dffe0825fd6665f30a5985a807825f83d2897",
+    "modified": true
+  },
+  {
+    "file": "scripts/scan_allele_kmers.cpp",
+    "original_sha256": "065329f16300b271b08319646b8ef1fff827cae1aef64f26b893eb3dca680487",
+    "staged_sha256": "fb85fafa22b3e5e9b59b86d1bd8a94da898c86df848de757af471af6d0b1d99b",
+    "modified": true
+  },
+  {
+    "file": "scripts/summarize_candidates.py",
+    "original_sha256": "292ba9404be360c9ba175a4e0f24608cb6e09ff38ae7edaedf773e6aef6d7b6a",
+    "staged_sha256": "c2b8d8f3d3ae4cf4f281920a380021338d8dd8dfa3ef80644a92c4702e1f4c3d",
+    "modified": true
+  },
+  {
+    "file": "scripts/validate_submission.py",
+    "original_sha256": "17c31e4c46fdfdd7e4b58a2a74a0eb2d8f5474b6cb2c2c117711538622e5accd",
+    "staged_sha256": "4e3d53075a6bd72e0fcdb1e8e007ca3d741bacf49680d8aa060541ce2d4235e9",
+    "modified": true
+  },
+  {
+    "file": "scripts/verify_downloads.py",
+    "original_sha256": "3c9a235dc649e6d46277aba09be7d7fb72d28be68b1c1cab5d0415125f308e84",
+    "staged_sha256": "ffe9ad2f186364d24ded38f3be55990c3445ebb2e9db251a977721882efffb60",
+    "modified": true
+  }
+]

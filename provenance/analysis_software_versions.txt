@@ -1,0 +1,6 @@
+bcftools 1.24
+samtools 1.24
+FastQC 0.12.1
+SeqKit 2.14.0
+Exomiser 15.1.0 (prepared, not run)
+ClinVar 2026-09-28 (downloaded and MD5 verified)

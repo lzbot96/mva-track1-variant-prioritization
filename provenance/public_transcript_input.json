@@ -1,0 +1,15 @@
+{
+  "relative_input": "data/references/bub1b_ensembl.json",
+  "scope": "Public Ensembl gene/transcript reference identity only; reference content and case variants not bundled",
+  "inspected_date": "2026-10-17",
+  "sha256": "f815126d3c730c3aab1b6ed6f1857036a096e8f2d8cac2fd3a452006098106ff",
+  "assembly": "GRCh38",
+  "gene": "ENSG00000156970",
+  "gene_version": 15,
+  "canonical_transcript": "ENST00000287598.11",
+  "strand": 1,
+  "historical_retrieval_command": null,
+  "historical_retrieval_date": null,
+  "live_retrieval_tested": false,
+  "limitation": "Use the authorized archived public object or independently verify equivalence. Current canonical annotations may differ."
+}

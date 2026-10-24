@@ -1,0 +1,4 @@
+huggingface_hub==1.8.0
+pysam==0.24.1
+biopython==1.85
+py2bit==1.0.1

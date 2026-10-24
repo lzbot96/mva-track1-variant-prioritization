@@ -1,0 +1,128 @@
+[
+  {
+    "script": "scripts/acquire_public_references.sh",
+    "historical_records": [
+      {
+        "command_sha256": "0f944ff5929f34c93613e6dccacbbb32da87afaf07b349758cd54dad57e8a30b",
+        "exit_code": 0
+      },
+      {
+        "command_sha256": "5842e9ac4213b647d78143ca8e2b346ffc96e423ff6527c31f263f7e50b1c9d3",
+        "exit_code": 0
+      },
+      {
+        "command_sha256": "2220ca9389342eca94ad109e20ec4f2f87bb6b280705480f2e5e1b093c37bb7f",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Run root and private input values externalized; no command body or patient inputs copied."
+  },
+  {
+    "script": "scripts/normalize_primary.sh",
+    "historical_records": [
+      {
+        "command_sha256": "f78a815cdce00afe6d8a47551a0d29f6013da9eca18be3eee394ce903e9f5c67",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Run root and private input values externalized; no command body or patient inputs copied."
+  },
+  {
+    "script": "scripts/normalize_clinvar.sh",
+    "historical_records": [
+      {
+        "command_sha256": "4099a8a43276eba1a514e0f3073e028d9215992823cd722a5f172513eade2283",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Run root and private input values externalized; no command body or patient inputs copied."
+  },
+  {
+    "script": "scripts/build_review_gene_manifest.py",
+    "historical_records": [
+      {
+        "command_sha256": "b7ab6539122aee32363a015afed16c9abdcb62debea22cef9aea67507ffbbc6c",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Run root and private input values externalized; no command body or patient inputs copied."
+  },
+  {
+    "script": "scripts/build_allele_kmers.py",
+    "historical_records": [
+      {
+        "command_sha256": "05e279228672afafaf067ad9e81ddec6fb6e040baae0214d28f237448f058b58",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Run root and private input values externalized; no command body or patient inputs copied."
+  },
+  {
+    "script": "scripts/fastq_qc.sh",
+    "historical_records": [
+      {
+        "command_sha256": "050c5dbade3c44bd060103687997fda4b5c7ef25e78484947d4120325f9e8609",
+        "exit_code": 0
+      },
+      {
+        "command_sha256": "358bf086e952eb8150c010897fc18e44b8c4d6d42eb4c4545870080732caae5f",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  },
+  {
+    "script": "scripts/acquire_clinvar.sh",
+    "historical_records": [
+      {
+        "command_sha256": "8f6205f3d8d2bc7eacdcb0a6e6a21034f86aa31948d414e3d7ecffd52c78aa14",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  },
+  {
+    "script": "scripts/verify_clinvar.py",
+    "historical_records": [
+      {
+        "command_sha256": "4ca6a91b615265c5b69ffbeabd537ff1e85db778fa33915bc3d6e31559cad3ef",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  },
+  {
+    "script": "scripts/authenticated_manifest.py",
+    "historical_records": [
+      {
+        "command_sha256": "932f7fbd1e41818698ef7266515495adf96555f7aca776240ccaed170029e2ce",
+        "exit_code": 0
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  },
+  {
+    "script": "scripts/extract_clinical.py",
+    "historical_records": [
+      {
+        "command_sha256": "dce12fb6469675339b107688bffa0d159f9202960efb5757e2ad8f247ef9b78d",
+        "exit_code": 0
+      },
+      {
+        "command_sha256": "1c9b95d54013aa3c0ff5580a1ac954815e77ed6ccb21f9c19411380585a4a793",
+        "exit_code": 1
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  },
+  {
+    "script": "scripts/curate_hpo.py",
+    "historical_records": [
+      {
+        "command_sha256": "b61bd3298d300fdf945f3b7ac913ad81408c1d1fdf023b3bb5c91013bdab3e0e",
+        "exit_code": 1
+      }
+    ],
+    "parameterization": "Private input paths/subject designation externalized; no clinical content copied. Nonzero whole-shell status is retained where later unrelated commands failed."
+  }
+]
