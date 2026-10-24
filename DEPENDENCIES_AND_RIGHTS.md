@@ -21,3 +21,6 @@ External requirements include bcftools/samtools, SeqKit, FastQC, a C++17 compile
 ## Limits of reuse
 
 This remains a collection of configured analysis stages, not a one-command generic disease pipeline. It preserves gene/transcript-specific logic, four-lane assumptions and reviewer choices. A new authorized run needs external private inputs, pinned manifests/references, the documented public transcript input and compatible installed tools. No controlled case data or populated private configuration is distributed here. No full pipeline replay or live API validation was performed during packaging or critical review.
+
+
+The bounded review utilities use the existing pysam and py2bit requirements, plus separately installed BWA for regional alignment and bcftools for optional private index generation. BWA 0.7.19-r1273 was observed during the October check. No BWA binary, reference sequence or generated alignment is redistributed. These utilities require Python 3.9 or newer; the surrounding historical pipeline has the compatibility limits stated above.

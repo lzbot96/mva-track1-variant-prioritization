@@ -19,13 +19,17 @@ python3 tests/self_test.py
 python3 -B tests/integrity_test.py
 python3 -B tests/reconstruction_test.py
 python3 -B tests/clinical_test.py
+python3 -B tests/genotype_carrier_test.py
+python3 -B tests/phenotype_sensitivity_test.py
+python3 -B tests/phase_recheck_test.py
+python3 -B tests/population_reference_test.py
 ```
 
 The first suite parses Python, checks shell syntax, builds the C++ scanner in a temporary directory and exercises synthetic reads. Integrity tests use small temporary files. Reconstruction tests require pysam and Biopython. Clinical tests require python-docx. These checks do not access case data or validate clinical findings. [VALIDATION.md](VALIDATION.md) records the dated results and their limits.
 
 ## Environment and provenance
 
-The analysis environment inspected during preparation used Python 3.9.6. The clinical synthetic test used Python 3.12.14 with python-docx 1.2.0. These observations are not a complete historical lockfile or proof of whole-pipeline compatibility. `requirements.txt` records four direct analysis dependencies; `requirements-clinical.txt` records the optional clinical dependency. External tools include bcftools/samtools, SeqKit, FastQC, a C++17 compiler and zlib. Historical compiler/zlib versions remain unavailable. Exomiser downloads were incomplete and Exomiser was not run; VEP was not run.
+The analysis environment inspected during preparation used Python 3.9.6. The clinical synthetic test used Python 3.12.14 with python-docx 1.2.0. These observations are not a complete historical lockfile or proof of whole-pipeline compatibility. `requirements.txt` records four direct analysis dependencies; `requirements-clinical.txt` records the optional clinical dependency. External tools include bcftools/samtools, SeqKit, FastQC, a C++17 compiler and zlib. The optional selected-read regional check uses BWA (0.7.19-r1273 observed); it accepts a PATH executable or --bwa override. Historical compiler/zlib versions remain unavailable. Exomiser downloads were incomplete and Exomiser was not run; VEP was not run.
 
 [DEPENDENCIES_AND_RIGHTS.md](DEPENDENCIES_AND_RIGHTS.md) records dependency versions, license observations and reuse limits. The `provenance/` directory records software versions, original script hashes and documented transformations. Public references are not bundled. The historical acquisition command/date for the public transcript input is unavailable; its schema, inspected identity and fingerprint are documented.
 

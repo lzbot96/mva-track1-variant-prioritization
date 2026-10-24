@@ -75,3 +75,31 @@ Input schemas and all environment settings are documented in INPUT_SCHEMAS.md. T
 The verifier now reads and hashes current file bytes against authenticated upstream metadata and checks receipt repository/revision identity. An incomplete check returns nonzero and clears prior success. Running it on the real dataset is a substantial I/O operation; it was tested only with tiny synthetic files in this review. September integrity claims in the report remain historical receipts, not a new whole-dataset recheck.
 
 The scanner now fails for output open/write/close errors. The runner invalidates prior completion, stages new artifacts and atomically publishes a version-1 receipt only after success. The aggregator verifies anchor SHA-256, exact pattern identities, FASTQ size/mtime inventory, count totals and output hashes. Metadata inventory is not a replacement for raw-read content checksums. Historical completion receipts are not compatible with this stronger evidence binding and need regeneration in a future authorized run; historical scientific outputs were not rerun. Keep one scanner invocation per run directory. The new `cds` preflight stage checks the documented public transcript input and indexed reference/VCF prerequisites.
+
+
+## Bounded review tools added on 24 October
+
+Use private input and output paths. The examples are placeholders, not case configuration. The sensitivity tool validates its cached baseline before calculating leave-one-term-out results and tie-aware top-20/top-50 sets.
+
+```sh
+python3 scripts/phenotype_sensitivity.py --cache PRIVATE_SCORE_JSON --annotations PUBLIC_HPO_GENE_TSV --baseline PROBAND_SCENARIO --track-gene REVIEW_GENE --output NEW_PRIVATE_JSON
+python3 scripts/check_source_checksum.py --source-vcf PRIVATE_VCF --manifest AUTHENTICATED_MANIFEST --receipt DOWNLOAD_RECEIPT --output NEW_PRIVATE_JSON
+python3 scripts/recheck_phase_reads.py --project PRIVATE_PROJECT --csv PRIVATE_CSV --source-index PRIVATE_CSI --out NEW_PRIVATE_DIRECTORY
+python3 scripts/recheck_anchor_uniqueness.py --reference PUBLIC_REFERENCE_2BIT --patterns PRIVATE_ANCHORS --output NEW_PRIVATE_JSON
+```
+
+The read recheck requires two distinct SNVs on one chromosome, matching 31-base anchors in both orientations, existing matched-read FASTQs, reference/VCF inputs and BWA. It validates these assumptions and writes a new regional alignment in the private output directory. It does not rerun the full FASTQ scan or promote a legacy completion marker to a new receipt. Build a fresh private source index with bcftools when needed; do not overwrite the supplied inputs.
+
+The anchor uniqueness check searches the existing complete reference; this is an exact-sequence search, not alignment or independent calling. Population-frequency review uses public gene references joined to private alleles locally. Missing matches remain unknown. Alias mappings require a public reference and must be documented; a missing region must not be silently counted as covered.
+
+All generated sensitivity tables, anchor records, reference intervals, selected reads, alignments and local joins are controlled outputs. Keep them out of this public code repository. Neither a passing code test nor a robustness analysis establishes a calibrated causal probability.
+
+
+For a public whole-gene frequency reference, `gnomad_public.py --gene PUBLIC_GENE_SYMBOL --populations --output NEW_REFERENCE_JSON` uses the required `MVA_PROJECT_ROOT` run directory and saves source/query/hash/date receipts. It does not accept a variant-query argument. Use a separate dated reference directory to preserve earlier snapshots.
+
+```sh
+python3 scripts/gnomad_public.py --gene PUBLIC_GENE_SYMBOL --populations --output NEW_REFERENCE_JSON
+python3 scripts/join_population_references.py --references PRIVATE_REFERENCE_DIRECTORY --candidates PRIVATE_CANDIDATE_CSV --output NEW_PRIVATE_JOIN_JSON
+```
+
+The join runs locally and sends no candidate information. It requires exact chromosome/position/reference/alternate matches and rejects conflicting reference snapshots. Missing matches remain unknown. Returned group AC/AN maxima are raw frequencies, not confidence-adjusted filtering frequencies or an ancestry-matched analysis.

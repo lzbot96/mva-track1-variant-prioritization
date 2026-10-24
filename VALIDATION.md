@@ -20,3 +20,16 @@ After incorporating the earlier records, all three test suites passed again. `te
 The isolated revision additionally passes `tests/integrity_test.py`: same-size modified input, mismatched receipt revision, incomplete download verification, unwritable scanner outputs, changed anchor names, tampered count outputs and a failed rerun with a stale prior receipt. Existing scanner/syntax, reconstruction and clinical synthetic suites also passed independently. Source-script hashes were updated to describe this revised code, preserving the original hashes.
 
 The old implementation's saved-checksum trust, unchecked output streams and stale-evidence acceptance were real defects. Fixes improve future execution but do not retroactively validate historical data or outputs. No real scan, whole-dataset hash, live API retrieval or clinical analysis was run. These results describe synthetic code checks, not a reanalysis of case data. See DEPENDENCIES_AND_RIGHTS.md for reuse and rights limits.
+
+
+## 24 October 2026 code verification
+
+- `tests/genotype_carrier_test.py`: four regression tests passed for reference-only, missing/partial, phased and multiallelic genotypes, symbolic alleles and required biallelic normalization.
+- `tests/phenotype_sensitivity_test.py`: six regression tests passed, including a near-equal-score case that must retain every original top-N gene. The reconstruction integration fixture also passed with a boundary tie.
+- `tests/phase_recheck_test.py`: seven tests passed for paired-read identifiers, input assumptions, source handling and output preservation. Independent code review reran these tests and the phenotype tests.
+- Independent review found and resolved one tolerance-related boundary-selection defect before this release. No additional critical issue was found in the reviewed genotype, ranking or bounded read-check code.
+
+The new scripts were also used for the bounded, dated rechecks described in the submitted report. Controlled data and their outputs remain outside this repository. No full genome alignment, independent variant-calling pipeline, clinical functional experiment or probability-calibration benchmark is claimed. Earlier dated records above describe the earlier revisions; they do not claim the new checks had already been run.
+
+
+The population-reference helpers passed four synthetic tests. The offline join also reproduced the independently computed values for the controlled selected records with network access prohibited during joining. The public downloader preserves the earlier overall-frequency query by default; `--populations` adds public group counts. No actual candidate list or joined result is bundled.

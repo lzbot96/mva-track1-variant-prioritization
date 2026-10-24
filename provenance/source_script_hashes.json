@@ -56,8 +56,10 @@
   {
     "file": "scripts/reconstruct_bub1b.py",
     "original_sha256": "7de9b13f940b9dba15b42796f141a28dbadebb154837d47e15bd9ea7990759d4",
-    "staged_sha256": "6601e101f1eb80c47b87e6cbbaba30f9e550880425be3bf083261e24256c8106",
-    "modified": true
+    "staged_sha256": "2e5f305e58a2ef3d719aac0729aa241b8317753345857087b2f73495830a44c1",
+    "modified": true,
+    "previous_staged_sha256": "6601e101f1eb80c47b87e6cbbaba30f9e550880425be3bf083261e24256c8106",
+    "updated_for": "24 October 2026 targeted review"
   },
   {
     "file": "scripts/run_kmer_validation.py",
@@ -74,8 +76,10 @@
   {
     "file": "scripts/summarize_candidates.py",
     "original_sha256": "292ba9404be360c9ba175a4e0f24608cb6e09ff38ae7edaedf773e6aef6d7b6a",
-    "staged_sha256": "c2b8d8f3d3ae4cf4f281920a380021338d8dd8dfa3ef80644a92c4702e1f4c3d",
-    "modified": true
+    "staged_sha256": "cf065c99f0c95d9acdf8ef8e57ca5ab1df80444ff289a82f44c24d30c9016fcb",
+    "modified": true,
+    "previous_staged_sha256": "c2b8d8f3d3ae4cf4f281920a380021338d8dd8dfa3ef80644a92c4702e1f4c3d",
+    "updated_for": "24 October 2026 targeted review"
   },
   {
     "file": "scripts/validate_submission.py",
@@ -88,5 +92,89 @@
     "original_sha256": "3c9a235dc649e6d46277aba09be7d7fb72d28be68b1c1cab5d0415125f308e84",
     "staged_sha256": "ffe9ad2f186364d24ded38f3be55990c3445ebb2e9db251a977721882efffb60",
     "modified": true
+  },
+  {
+    "file": "scripts/phenotype_sensitivity.py",
+    "original_sha256": null,
+    "staged_sha256": "142667358476cacec1255f18696c96eb6d3bd0c780d5070f9544dd4126a3a055",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/recheck_phase_reads.py",
+    "original_sha256": null,
+    "staged_sha256": "0e68f9b7e62d237ae159d2592382beca886bc4c846cf112fb40ad516a1db3266",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/recheck_anchor_uniqueness.py",
+    "original_sha256": null,
+    "staged_sha256": "5aefb0a0f6722d7d603b216241107b0a07f24aa7a2ce60fbfbfca29c1406c182",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/check_source_checksum.py",
+    "original_sha256": null,
+    "staged_sha256": "57d59178c6d4a2feb397a1f65d188bf7532c3f3568057509f178acadb6edce72",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/join_population_references.py",
+    "original_sha256": null,
+    "staged_sha256": "16241f7303f3b109dbccf871a9d7b1c44039a3236f2182d4daaea4cd7b704d69",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "tests/genotype_carrier_test.py",
+    "original_sha256": null,
+    "staged_sha256": "09eb2b3570afdd6e852ae95e740c1b7d605895e1db3d1b0974aae35106f81c48",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "tests/phenotype_sensitivity_test.py",
+    "original_sha256": null,
+    "staged_sha256": "e14a25f8cfa623f7ea7433fe3de044aa47061fdb2b68cf84fbd34347198615d8",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "tests/phase_recheck_test.py",
+    "original_sha256": null,
+    "staged_sha256": "25d8ef6720ad2f7c850b9d85f07df7334bd0bef5f0deb3e0605d9ccb4009b8be",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "tests/population_reference_test.py",
+    "original_sha256": null,
+    "staged_sha256": "cf6ed84972937ddb3bac2fe728f89a56fcb4fe88302c36a850aa091b6191af0b",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/build_review_gene_manifest.py",
+    "original_sha256": null,
+    "staged_sha256": "9a836d6a8c49cda230a9bf559d604b348221c160e3bee30866f671bc73c73a3c",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "scripts/gnomad_public.py",
+    "original_sha256": null,
+    "staged_sha256": "6ad22e040e1f5b28f5ed8b7692debcd94be4cea9218f1b2617b93f36970cbf52",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
+  },
+  {
+    "file": "tests/reconstruction_test.py",
+    "original_sha256": null,
+    "staged_sha256": "acfcad6ca6be9026b49b87e59297d4af3a1e221b00a1796abd516bd73c8871e1",
+    "newly_authored_or_reconstructed": true,
+    "updated_for": "24 October 2026 targeted review"
   }
 ]

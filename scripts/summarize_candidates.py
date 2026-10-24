@@ -3,6 +3,17 @@ from pathlib import Path
 import csv,json,re,collections
 import pysam
 from project_paths import project_root, required_env
+def called_alt_indices(genotype, alternate_count):
+ """Carried ALT indices in a complete called genotype; phase is irrelevant.
+
+ Missing or partial genotypes are excluded rather than treated as confident
+ carriers. Check indices against the actual ALT list, including multiallelic GT.
+ """
+ if not genotype or any(a is None for a in genotype):return ()
+ if any(not isinstance(a,int) or a<0 or a>alternate_count for a in genotype):
+  raise ValueError('Genotype allele index is outside the record alleles')
+ return tuple(i for i in range(1,alternate_count+1) if i in genotype)
+
 R = project_root()
 review=set(json.loads((R/'results/candidates/review_gene_manifest.json').read_text())['genes'])
 ranks={k:{r['gene']:r['rank'] for r in v} for k,v in json.loads((R/'results/phenotype/semantic_ranking.json').read_text())['rankings'].items()}
@@ -22,8 +33,16 @@ rows=[];clinical=[];count=collections.Counter()
 vcf=pysam.VariantFile(R/'work/primary.csq.clinvar.vcf.gz')
 for v in vcf:
  count['records']+=1
+ if len(v.samples)!=1:raise ValueError('Candidate summary requires one sample')
  sample=next(iter(v.samples.values()));gt=sample.get('GT');dp=sample.get('DP');gq=sample.get('GQ')
- base={'chrom':v.contig,'pos':v.pos,'ref':v.ref,'alt':','.join(v.alts),'gt':'/'.join('.' if a is None else str(a) for a in gt),'dp':dp,'gq':gq,'ad':','.join(str(a) for a in (sample.get('AD') or [])),'filter':';'.join(v.filter),'baseline_qc_pass':list(v.filter)==['PASS'] and dp is not None and gq is not None and dp>=10 and gq>=20,'original_record':v.info.get('ORIG','')}
+ carried=called_alt_indices(gt,len(v.alts or ()))
+ if not carried:
+  count['noncarrier_or_incomplete_gt_records_excluded']+=1
+  continue
+ if len(v.alts or ())!=1:
+  raise ValueError('Candidate summary requires split biallelic records; normalize with bcftools norm -m -any before annotation')
+ count['called_alt_records']+=1
+ base={'chrom':v.contig,'pos':v.pos,'ref':v.ref,'alt':','.join(v.alts),'gt':('|' if sample.phased else '/').join(str(a) for a in gt),'dp':dp,'gq':gq,'ad':','.join(str(a) for a in (sample.get('AD') or [])),'filter':';'.join(v.filter),'baseline_qc_pass':1 in carried and list(v.filter)==['PASS'] and dp is not None and gq is not None and dp>=10 and gq>=20,'original_record':v.info.get('ORIG','')}
  cl=v.info.get('CLNSIG',());cl=','.join(cl) if isinstance(cl,tuple) else str(cl)
  cr=v.info.get('CLNREVSTAT',());cr=','.join(cr) if isinstance(cr,tuple) else str(cr)
  base.update({'clinvar':cl,'clinvar_review':cr})
@@ -53,5 +72,5 @@ rare=[r for r in rows if r['baseline_qc_pass'] and (r['max_overall_af'] is None 
 with (R/'results/candidates/review_genes_rare_or_unknown.tsv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=fields,delimiter='\t',extrasaction='ignore');w.writeheader();w.writerows(rare)
 (R/'results/candidates/clinvar_primary_chromosome_findings.json').write_text(json.dumps(clinical,indent=2)+'\n')
-(R/'results/candidates/annotation_summary.json').write_text(json.dumps({'counts':dict(count),'frequency_gene_files_loaded':len(loaded),'review_genes':len(review),'rare_or_unknown_rows':len(rare),'limitations':'Frequency unknown is not rare; overall AF not ancestry-specific; multiple rows can describe one variant across transcripts. Primary nuclear chromosomes only. Site-local consequences do not establish phase.'},indent=2)+'\n')
+(R/'results/candidates/annotation_summary.json').write_text(json.dumps({'counts':dict(count),'frequency_gene_files_loaded':len(loaded),'review_genes':len(review),'rare_or_unknown_rows':len(rare),'limitations':'Only complete called genotypes carrying ALT are summarized; missing/partial GT and reference-only records are excluded. Input must be split biallelic before annotation. Frequency unknown is not rare; overall AF not ancestry-specific; multiple rows can describe one variant across transcripts. Primary nuclear chromosomes only. Site-local consequences do not establish phase.'},indent=2)+'\n')
 print(json.dumps(dict(count)));print('Rare-or-unknown candidate rows:',len(rare))
